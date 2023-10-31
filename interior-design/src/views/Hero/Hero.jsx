@@ -1,17 +1,14 @@
 import React, {useState} from 'react'
-
-import heroImage from "../../assets/hero-image.svg"
 import logo from '../../assets/logo.svg'
 import cartIcon from '../../assets/cart-icon.svg'
 import searchIcon from '../../assets/search-icon.svg'
-
 import {AiOutlineClose} from 'react-icons/ai'
 import {HiMenuAlt3} from 'react-icons/hi'
-
 import {heroTitle, heroSubtitle, links} from '../../fixtures/data'
-
-import  {NavList, NavLink } from '../../components/NavLink/NavLink'
+import  {NavList } from '../../components/NavLink/NavLink'
 import FadeIn from '../../components/FadeIn/FadeIn'
+
+
 
 const Hero = () => {
     const [showMobileMenu, setShowMobileMenu] = useState(false);

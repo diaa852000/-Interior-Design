@@ -1,23 +1,25 @@
-import React, {useRef, useEffect} from 'react'
-import { inView, motion, useAnimation, useInView } from 'framer-motion'
+import React, {useEffect} from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer';
 
-const FadeIn = ({children, delay, direction, fullWidth, padding}) => {
-    const ref = useRef();
-    
-    const isInView = useInView(ref, {once: true});
+
+const FadeIn = ({children, delay, direction, fullWidth, padding, className}) => {
     const controls = useAnimation();
+    const [inViewRef, isInView] = useInView({
+        triggerOnce: true,
+        threshold: 0.3
+    });
+
 
     useEffect(() => {
-        if(inView){
+        if(isInView){
             controls.start('visible');
         }
-
-
     }, [isInView, controls])
 
 
     return (
-        <div ref={ref} className={`${fullWidth? "w-full" : "w-auto"} ${padding ? 'px-10' : 'px-0'} flex items-center justify-center`}>
+        <div ref={inViewRef} className={`${fullWidth? "w-full" : "w-auto"} ${padding ? 'px-10' : 'px-0'} flex items-center justify-center`}>
             <motion.div
                 variants={{
                     hidden: {
@@ -39,6 +41,7 @@ const FadeIn = ({children, delay, direction, fullWidth, padding}) => {
                     delay: delay,
                     ease: [0.5, 0.25, 0.25, 0.75],
                 }}
+                className={`w-full flex items-center justify-center ${className}`}
             >
                 {children}
             </motion.div>

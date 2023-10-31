@@ -17,7 +17,7 @@ export const heroSubtitle =
 
 export const links = [
     {id:1, name:'services', link:'services'},
-    {id:2, name:'products', link:'shop'},
+    {id:2, name:'shop', link:'shop'},
     {id:3, name:'reference', link:'reference'},
     {id:4, name:'care', link:'care'},
 ]
