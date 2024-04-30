@@ -13,9 +13,6 @@ export default {
       margin: "0 auto",
     },
     extend: {
-      backgroundImage: {
-        hero: "url('./src/assets/hero-image.svg')"
-      },
       colors: {
         primary: "rgba(255,255,255,0.30)",
         fontBlack: "#081323",

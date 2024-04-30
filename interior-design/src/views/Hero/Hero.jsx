@@ -7,14 +7,14 @@ import {HiMenuAlt3} from 'react-icons/hi'
 import {heroTitle, heroSubtitle, links} from '../../fixtures/data'
 import  {NavList } from '../../components/NavLink/NavLink'
 import FadeIn from '../../components/FadeIn/FadeIn'
-
+import heroImage from '../../assets/hero-image.svg'
 
 
 const Hero = () => {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
     return (
-        <div className='h-screen relative flex flex-col items-center bg-hero bg-bottom bg-no-repeat bg-cover'>
+        <div className='h-screen relative flex flex-col items-center bg-bottom bg-no-repeat bg-cover' style={{backgroundImage: `url(${heroImage})`}}>
             <div className='container relative w-full flex items-center justify-between pt-5 px-4 md:pt-10 md:px-10'>
                 <img src={logo} alt="logo" />
                 <NavList links={links}/>
